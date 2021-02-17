@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>task3</title>
+    <script src="task3.js"></script>
+    <script>
+        window.addEventListener("load", function() {
+           let start=document.getElementById('start');
+         
+        
+
+            start.addEventListener("click",function(){
+            let number1=document.getElementById("number1").value;
+            number1=Number(number1);
+            let number2=document.getElementById("number2").value;
+            number2=Number(number2);
+            let number3=document.getElementById("number3").value;
+            number3=Number(number3);
+            let number4=document.getElementById("number4").value;
+            number4=Number(number4);
+            let number5=document.getElementById("number5").value;
+            number5=Number(number5);
+            let color=document.getElementById('color').value;
+            let range=document.getElementById("range").value;
+            let range_width=document.getElementById("range_width").value;
+  
+            
+            console.log(color);
+            console.log(range);
+            console.log(number1);
+            console.log(number2);
+            console.log(number3);
+            console.log(number4);
+            console.log(number5);
+         
+     //document.getElementById('color').onchange = function () {
+   // chart.style.backgroundColor = this.value;
+   // console.log(color)}
+
+            let chart = createBarChart([number1, number2, number3, number4,number5],
+                range,
+                range_width,
+               color);
+
+            let container = document.getElementById("chart");
+            container.append(chart);
+        })
+        });
+        function show_height(){
+            let range=document.getElementById("range").value;
+  let range_number=document.getElementById("range_number");
+      range_number.innerHTML=range+"px";
+         
+        }
+        function show_width(){
+            let range_width=document.getElementById("range_width").value;
+            let range_number_width=document.getElementById("range_number_width");
+           range_number_width.innerHTML=range_width+"px";
+        }
+   
+    </script>
+</head>
+
+<body>
+    <input type="number" id="number1" placeholder="enter number1">please enter number1</input><br/>
+    <input type="number" id="number2" placeholder="enter number2">please enter number2</input><br/>
+    <input type="number" id="number3" placeholder="enter number3">please enter number3</input><br/>
+    <input type="number" id="number4" placeholder="enter number4">please enter number4</input><br/>
+    <input type="number" id="number5" placeholder="enter number5">please enter number5</input><br/>
+   
+    <input type="range" onclick="show_height()" id="range" min="0" max="600" step="1" value="50"><br/>
+    <p>height</p>
+    <p id="range_number"></p>
+
+    <input type="range"   onclick="show_width()" id="range_width" min="0" max="300" step="1" value="50"><br/>
+    <p>width</p>
+    <p id="range_number_width"></p>
+    <input id="color" type="color">
+    <button id= "start">start</button><br/>
+  
+
+    <div id="chart" style="margin:10px"></div>
+</body>
+
+</html>
